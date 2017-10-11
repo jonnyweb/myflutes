@@ -45,7 +45,7 @@ export default class App extends Component {
         />
         <Lessons name="Lessons" href="lessons" />
         <Quote
-          content="Liz has the ability to nurture the very best from Aoife. Aoife knows that Liz has the unwavering belief that she can achieve, with clear instruction; encouragement and an unending list of strategies to overcome challenges.."
+          content="Liz has the ability to nurture the very best from Aoife. Aoife knows that Liz has the unwavering belief that she can achieve, with clear instruction; encouragement and an unending list of strategies to overcome challenges."
           author="Noala - Aoife's Mum"
         />
         <PhotoGallery name="Photos" href="photos" />

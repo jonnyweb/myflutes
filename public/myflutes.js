@@ -13869,7 +13869,7 @@ var App = function (_Component) {
         }),
         _react2.default.createElement(_Lessons2.default, { name: 'Lessons', href: 'lessons' }),
         _react2.default.createElement(_Quote2.default, {
-          content: 'Liz has the ability to nurture the very best from Aoife. Aoife knows that Liz has the unwavering belief that she can achieve, with clear instruction; encouragement and an unending list of strategies to overcome challenges..',
+          content: 'Liz has the ability to nurture the very best from Aoife. Aoife knows that Liz has the unwavering belief that she can achieve, with clear instruction; encouragement and an unending list of strategies to overcome challenges.',
           author: 'Noala - Aoife\'s Mum'
         }),
         _react2.default.createElement(_PhotoGallery2.default, { name: 'Photos', href: 'photos' }),
