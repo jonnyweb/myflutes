@@ -15297,34 +15297,38 @@ function Videos() {
     'section',
     { className: 'no-padding', id: 'videos' },
     _react2.default.createElement(
-      _reactBootstrap.Row,
-      null,
+      'div',
+      { className: 'container' },
       _react2.default.createElement(
-        _reactBootstrap.Col,
-        { lg: 12, className: 'text-center' },
+        _reactBootstrap.Row,
+        null,
         _react2.default.createElement(
-          'h2',
-          { className: 'section-heading' },
-          'Videos'
+          _reactBootstrap.Col,
+          { lg: 12, className: 'text-center' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'section-heading' },
+            'Videos'
+          ),
+          _react2.default.createElement('hr', { className: 'primary' })
         ),
-        _react2.default.createElement('hr', { className: 'primary' })
-      ),
-      _react2.default.createElement(
-        _reactBootstrap.Col,
-        { lg: 6, sm: 6, xs: 12 },
         _react2.default.createElement(
-          'div',
-          { className: 'video' },
-          _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/dVw_U5HK0xA', frameBorder: '0', allowFullScreen: true })
-        )
-      ),
-      _react2.default.createElement(
-        _reactBootstrap.Col,
-        { lg: 6, sm: 6, xs: 12 },
+          _reactBootstrap.Col,
+          { lg: 6, sm: 6, xs: 12 },
+          _react2.default.createElement(
+            'div',
+            { className: 'video' },
+            _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/dVw_U5HK0xA', frameBorder: '0', allowFullScreen: true })
+          )
+        ),
         _react2.default.createElement(
-          'div',
-          { className: 'video' },
-          _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/LV5vluTRdho', frameBorder: '0', allowFullScreen: true })
+          _reactBootstrap.Col,
+          { lg: 6, sm: 6, xs: 12 },
+          _react2.default.createElement(
+            'div',
+            { className: 'video' },
+            _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/LV5vluTRdho', frameBorder: '0', allowFullScreen: true })
+          )
         )
       )
     )
