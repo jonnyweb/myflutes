@@ -15292,7 +15292,24 @@ var _reactBootstrap = __webpack_require__(134);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var videos = ['https://www.youtube.com/embed/LV5vluTRdho', 'https://www.youtube.com/embed/Ua-r_2bdo7E'];
+
 function Videos() {
+
+  var videoComponents = [];
+
+  for (var i = 0; i < videos.length; i++) {
+    videoComponents.push(_react2.default.createElement(
+      _reactBootstrap.Col,
+      { lg: 6, sm: 6, xs: 12 },
+      _react2.default.createElement(
+        'div',
+        { className: 'video' },
+        _react2.default.createElement('iframe', { src: videos[i], frameBorder: '0', allowFullScreen: true })
+      )
+    ));
+  }
+
   return _react2.default.createElement(
     'section',
     { className: 'no-padding', id: 'videos' },
@@ -15312,24 +15329,7 @@ function Videos() {
           ),
           _react2.default.createElement('hr', { className: 'primary' })
         ),
-        _react2.default.createElement(
-          _reactBootstrap.Col,
-          { lg: 6, sm: 6, xs: 12 },
-          _react2.default.createElement(
-            'div',
-            { className: 'video' },
-            _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/dVw_U5HK0xA', frameBorder: '0', allowFullScreen: true })
-          )
-        ),
-        _react2.default.createElement(
-          _reactBootstrap.Col,
-          { lg: 6, sm: 6, xs: 12 },
-          _react2.default.createElement(
-            'div',
-            { className: 'video' },
-            _react2.default.createElement('iframe', { src: 'https://www.youtube.com/embed/LV5vluTRdho', frameBorder: '0', allowFullScreen: true })
-          )
-        )
+        videoComponents
       )
     )
   );
