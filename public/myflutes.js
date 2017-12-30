@@ -15292,7 +15292,7 @@ var _reactBootstrap = __webpack_require__(134);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var videos = ['https://www.youtube.com/embed/LV5vluTRdho', 'https://www.youtube.com/embed/Ua-r_2bdo7E'];
+var videos = ['https://www.youtube.com/embed/3Tpu8ezUQRE', 'https://www.youtube.com/embed/Ua-r_2bdo7E'];
 
 function Videos() {
 

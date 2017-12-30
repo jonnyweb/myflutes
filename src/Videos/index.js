@@ -4,8 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 
 
 const videos = [
+  'https://www.youtube.com/embed/3Tpu8ezUQRE',
   'https://www.youtube.com/embed/Ua-r_2bdo7E',
-  'https://www.youtube.com/embed/LV5vluTRdho',
+  //'https://www.youtube.com/embed/LV5vluTRdho',
 ];
 
 export default function Videos(){
