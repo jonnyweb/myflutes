@@ -6,6 +6,12 @@ import Lightbox from 'react-images';
 
 const photos = [
   {
+    title: 'Peterborough Music Festival',
+    name: 'King\'s Ely Junior School Flute Choir',
+    src: 'images/portfolio/fullsize/peterborough.jpg',
+    thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
+  },
+  {
     title: 'Suzuki Lessons',
     name: 'Marianne & Eleanor',
     src: 'images/portfolio/fullsize/flutes_1.jpg',
@@ -41,13 +47,13 @@ const photos = [
     src: 'images/portfolio/fullsize/flutes_5.jpg',
     thumbnail: 'images/portfolio/thumbnails/flutes_5.jpg',
   },
-  {
-    title: 'Peterborough Music Festival',
-    name: (<div>Top: Izzy, Lauren & Amy<br/>Bottom: Megan, Ciara & Hattie</div>),
-    caption: 'Top: Izzy, Lauren & Amy, Bottom: Megan, Ciara & Hattie',
-    src: 'images/portfolio/fullsize/flutes_6.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_6.jpg',
-  },
+  // {
+  //   title: 'Peterborough Music Festival',
+  //   name: (<div>Top: Izzy, Lauren & Amy<br/>Bottom: Megan, Ciara & Hattie</div>),
+  //   caption: 'Top: Izzy, Lauren & Amy, Bottom: Megan, Ciara & Hattie',
+  //   src: 'images/portfolio/fullsize/flutes_6.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/flutes_6.jpg',
+  // },
 ];
 
 export default class PhotoGallery extends React.Component {

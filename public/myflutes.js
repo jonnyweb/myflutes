@@ -13926,6 +13926,10 @@ var _Contact = __webpack_require__(191);
 
 var _Contact2 = _interopRequireDefault(_Contact);
 
+var _News = __webpack_require__(1066);
+
+var _News2 = _interopRequireDefault(_News);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13978,6 +13982,7 @@ var App = function (_Component) {
         null,
         _react2.default.createElement(_Header2.default, { name: '' }),
         _react2.default.createElement(_About2.default, { name: 'About', href: 'about' }),
+        _react2.default.createElement(_News2.default, { name: 'News', href: 'news' }),
         _react2.default.createElement(_Quote2.default, {
           content: 'Liz is a true professional who works very hard on each individual\'s needs. The musicianship shown by all her students at King\'s Ely is outstanding and the preparation and results she gains in exams are beyond our expectations.',
           author: 'Neil Porter-Thaw - Director of Music, King\'s Ely Junior School'
@@ -14455,6 +14460,18 @@ var ContactUs = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (ContactUs.__proto__ || Object.getPrototypeOf(ContactUs)).call(this));
 
+    _this.getRecaptcha = function () {
+      if (window.location.protocol === 'file:') {
+        return null;
+      }
+
+      return _react2.default.createElement(_reactRecaptcha2.default, {
+        render: 'explicit',
+        verifyCallback: _this.verifyCallback,
+        sitekey: _this.publicKey
+      });
+    };
+
     _this.sendMessage = function () {
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/mail.php');
@@ -14590,11 +14607,7 @@ var ContactUs = function (_Component) {
           _react2.default.createElement(
             _reactBootstrap.FormGroup,
             { controlId: 'reCAPTCHA' },
-            _react2.default.createElement(_reactRecaptcha2.default, {
-              render: 'explicit',
-              verifyCallback: this.verifyCallback,
-              sitekey: this.publicKey
-            })
+            this.getRecaptcha()
           )
         )
       );
@@ -15188,6 +15201,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var photos = [{
+  title: 'Peterborough Music Festival',
+  name: 'King\'s Ely Junior School Flute Choir',
+  src: 'images/portfolio/fullsize/peterborough.jpg',
+  thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
+}, {
   title: 'Suzuki Lessons',
   name: 'Marianne & Eleanor',
   src: 'images/portfolio/fullsize/flutes_1.jpg',
@@ -15219,18 +15237,6 @@ var photos = [{
   name: 'Harriet, Marianne, Cosima & Rachel',
   src: 'images/portfolio/fullsize/flutes_5.jpg',
   thumbnail: 'images/portfolio/thumbnails/flutes_5.jpg'
-}, {
-  title: 'Peterborough Music Festival',
-  name: _react2.default.createElement(
-    'div',
-    null,
-    'Top: Izzy, Lauren & Amy',
-    _react2.default.createElement('br', null),
-    'Bottom: Megan, Ciara & Hattie'
-  ),
-  caption: 'Top: Izzy, Lauren & Amy, Bottom: Megan, Ciara & Hattie',
-  src: 'images/portfolio/fullsize/flutes_6.jpg',
-  thumbnail: 'images/portfolio/thumbnails/flutes_6.jpg'
 }];
 
 var PhotoGallery = function (_React$Component) {
@@ -35881,6 +35887,9 @@ var map = {
 	"./NavBar/index": 194,
 	"./NavBar/index.js": 194,
 	"./NavBar/style.less": 360,
+	"./News/index": 1066,
+	"./News/index.js": 1066,
+	"./News/style.less": 1067,
 	"./PhotoGallery/PhotoBox/index": 195,
 	"./PhotoGallery/PhotoBox/index.js": 195,
 	"./PhotoGallery/index": 196,
@@ -35900,6 +35909,7 @@ var map = {
 	"./images/portfolio/fullsize/flutes_5.jpg": 753,
 	"./images/portfolio/fullsize/flutes_6.jpg": 754,
 	"./images/portfolio/fullsize/flutes_7.jpg": 755,
+	"./images/portfolio/fullsize/peterborough.jpg": 1069,
 	"./images/portfolio/thumbnails/flutes_1.jpg": 756,
 	"./images/portfolio/thumbnails/flutes_2.jpg": 757,
 	"./images/portfolio/thumbnails/flutes_3.jpg": 758,
@@ -35907,6 +35917,7 @@ var map = {
 	"./images/portfolio/thumbnails/flutes_5.jpg": 760,
 	"./images/portfolio/thumbnails/flutes_6.jpg": 761,
 	"./images/portfolio/thumbnails/flutes_7.jpg": 762,
+	"./images/portfolio/thumbnails/peterborough.jpg": 1070,
 	"./index": 301,
 	"./index.js": 301,
 	"./mixins.less": 732,
@@ -83832,6 +83843,245 @@ function isReactComponent(component) {
   return !!(component && component.prototype && component.prototype.isReactComponent);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 1037 */,
+/* 1038 */,
+/* 1039 */,
+/* 1040 */,
+/* 1041 */,
+/* 1042 */,
+/* 1043 */,
+/* 1044 */,
+/* 1045 */,
+/* 1046 */,
+/* 1047 */,
+/* 1048 */,
+/* 1049 */,
+/* 1050 */,
+/* 1051 */,
+/* 1052 */,
+/* 1053 */,
+/* 1054 */,
+/* 1055 */,
+/* 1056 */,
+/* 1057 */,
+/* 1058 */,
+/* 1059 */,
+/* 1060 */,
+/* 1061 */,
+/* 1062 */,
+/* 1063 */,
+/* 1064 */,
+/* 1065 */,
+/* 1066 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = News;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = __webpack_require__(135);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function News() {
+  return _react2.default.createElement(
+    'section',
+    { id: 'news' },
+    _react2.default.createElement(
+      'div',
+      { className: 'container' },
+      _react2.default.createElement(
+        _reactBootstrap.Row,
+        null,
+        _react2.default.createElement(
+          _reactBootstrap.Col,
+          { lg: 12, className: 'text-center' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'section-heading' },
+            'Peterborough Music Festival Results'
+          ),
+          _react2.default.createElement('hr', { className: 'primary' }),
+          _react2.default.createElement(
+            'p',
+            null,
+            'The Peterborough Music Festival 2018 was a great success for my pupils this year. They all played amazingly well and were given glowing reviews from the judge. A special congratulations to Lara who managed to win the Under 18 Woodwind Solo class and also performed stylishly in the final concert to achieve runner up for the Young Musician of the Year competition.'
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: 'results' },
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Class Results'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Elementary & Grade 1 Solo'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Aoife, Agatha, Erin & Molly'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Grade 2/3 Solo'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Megan (Winner), Harriet B & Harriet P'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Commended: Nell, Isabel & Rebecca'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Grade 4/5 Solo'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Sophie (Winner) & Lauren'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Commended: Olivia & Amy'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Under 12 Duet'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Rebecca & Agatha (Winners), Lauren & Sophie, Nell & Olivia'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Commended: Harriet B & Harriet P, Isabel & Erin, Amy & Megan'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Under 15 Solo'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Outstanding: Lara (Winner)'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Victoria, Sophie & Lauren'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Under 18 Solo'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Lara (Winner) & Victoria'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Under 18 Duet'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Distinction: Victoria & Lara (Winners)'
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'bold' },
+                'Junior Woodwind Ensemble'
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                'Outstanding: Kings Ely Junior Flute Choir'
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+/***/ }),
+/* 1067 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 1068 */,
+/* 1069 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/portfolio/fullsize/peterborough.jpg";
+
+/***/ }),
+/* 1070 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/portfolio/thumbnails/peterborough.jpg";
 
 /***/ })
 /******/ ]);

@@ -25,6 +25,20 @@ export default class ContactUs extends Component {
     };
   }
 
+  getRecaptcha = () => {
+    if (window.location.protocol === 'file:') {
+      return null;
+    }
+
+    return (
+      <Recaptcha
+        render="explicit"
+        verifyCallback={this.verifyCallback}
+        sitekey={this.publicKey}
+      />
+    );
+  };
+
   sendMessage = () => {
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/mail.php');
@@ -113,12 +127,9 @@ export default class ContactUs extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
+
           <FormGroup controlId="reCAPTCHA">
-            <Recaptcha
-              render="explicit"
-              verifyCallback={this.verifyCallback}
-              sitekey={this.publicKey}
-            />
+            {this.getRecaptcha()}
           </FormGroup>
         </div>
       </Row>

@@ -12,6 +12,7 @@ import PhotoGallery from './PhotoGallery';
 import Videos from './Videos';
 import EventsList from './Events';
 import Contact from './Contact';
+import News from './News';
 
 export default class App extends Component {
   componentDidMount() {
@@ -39,6 +40,7 @@ export default class App extends Component {
       <NavBar>
         <Header name="" />
         <About name="About" href="about" />
+        <News  name="News" href="news" />
         <Quote
           content="Liz is a true professional who works very hard on each individual's needs. The musicianship shown by all her students at King's Ely is outstanding and the preparation and results she gains in exams are beyond our expectations."
           author="Neil Porter-Thaw - Director of Music, King's Ely Junior School"

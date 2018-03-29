@@ -9874,6 +9874,33 @@ header .header-content .header-content-inner p {
 #contact #submit-button > div {
   transition: all 2s ease;
 }
+#news #results {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#news #results h3 {
+  display: block;
+  width: 100%;
+}
+#news #results p {
+  font-size: 1.4rem;
+  text-align: left;
+  flex: 1;
+  max-width: 33%;
+  min-width: 33%;
+  padding: 10px 10px;
+}
+#news span {
+  display: block;
+  clear: both;
+}
+#news span.bold {
+  font-weight: bold;
+}
 .photo-box {
   position: relative;
   display: block;
