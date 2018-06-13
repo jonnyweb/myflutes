@@ -9888,7 +9888,7 @@ header .header-content .header-content-inner p {
 }
 #news #results p {
   font-size: 1.4rem;
-  text-align: left;
+  text-align: center;
   flex: 1;
   max-width: 33%;
   min-width: 33%;
