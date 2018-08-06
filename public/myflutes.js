@@ -15329,9 +15329,64 @@ var exams = _react2.default.createElement(
       _react2.default.createElement(
         "h2",
         { className: "section-heading" },
-        "Latest Exam Results"
+        "Latest News"
       ),
       _react2.default.createElement("hr", { className: "primary" }),
+      _react2.default.createElement(
+        "h3",
+        null,
+        "King's Junior School Music Competition"
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Congratulation to all of my pupils for the following results!"
+      ),
+      _react2.default.createElement(
+        "div",
+        { id: "results" },
+        _react2.default.createElement(
+          "p",
+          null,
+          _react2.default.createElement(
+            "span",
+            { className: "bold" },
+            "Year 3/4 Woodwind"
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            "Megan (1st), Molly (2nd)"
+          ),
+          _react2.default.createElement("br", null),
+          _react2.default.createElement(
+            "span",
+            { className: "bold" },
+            "Year 5/6 Woodwing"
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            "Hattie (1st), Amy (2nd)"
+          ),
+          _react2.default.createElement("br", null),
+          _react2.default.createElement(
+            "span",
+            { className: "bold" },
+            "Year 7/8 Woodwind"
+          ),
+          _react2.default.createElement(
+            "span",
+            null,
+            "Sophie (1st), Lauren (2nd)"
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "h3",
+        null,
+        "Recent ABRSM exams"
+      ),
       _react2.default.createElement(
         "p",
         null,

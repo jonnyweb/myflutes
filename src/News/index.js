@@ -74,9 +74,25 @@ const exams = (
   <div className="container">
     <Row>
       <Col lg={12} className="text-center">
-        <h2 className="section-heading">Latest Exam Results</h2>
+        <h2 className="section-heading">Latest News</h2>
         <hr className="primary" />
 
+        <h3>King's Junior School Music Competition</h3>
+        <p>Congratulation to all of my pupils for the following results!</p>
+        <div id="results">
+          <p>
+            <span className="bold">Year 3/4 Woodwind</span>
+            <span>Megan (1st), Molly (2nd)</span>
+            <br />
+            <span className="bold">Year 5/6 Woodwing</span>
+            <span>Hattie (1st), Amy (2nd)</span>
+            <br />
+            <span className="bold">Year 7/8 Woodwind</span>
+            <span>Sophie (1st), Lauren (2nd)</span>
+          </p>
+        </div>
+
+        <h3>Recent ABRSM exams</h3>
         <p>
           I'd like to congratulate all of my pupils who recently achieved great results with the ABRSM exams.
         </p>
