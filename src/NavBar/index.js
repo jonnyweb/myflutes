@@ -69,7 +69,7 @@ export default class NavBar extends Component {
                   <i className="fa fa-bars" />
                 </button>
                 <a className="navbar-brand page-scroll" href="#page-top">
-                  myflutes.co.uk
+                  Liz Hargest
                 </a>
               </div>
 

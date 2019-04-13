@@ -1,16 +1,16 @@
 #news {
-  #results {
-    h3 {
-      display: block;
-      width: 100%;
-    }
-
+  .results {
     display: flex;
     width: 100%;
     align-items: flex-start;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+
+    h3 {
+      display: block;
+      width: 100%;
+    }
 
     p {
       font-size: 1.4rem;
@@ -19,6 +19,12 @@
       max-width: 33%;
       min-width: 33%;
       padding: 10px 10px;
+
+      @media (max-width: 600px) {
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+      }
     }
   }
 

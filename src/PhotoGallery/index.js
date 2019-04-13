@@ -5,11 +5,17 @@ import jsxToString from 'jsx-to-string';
 import Lightbox from 'react-images';
 
 const photos = [
+  // {
+  //   title: 'Peterborough Music Festival',
+  //   name: 'King\'s Ely Junior School Flute Choir',
+  //   src: 'images/portfolio/fullsize/peterborough.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
+  // },
   {
-    title: 'Peterborough Music Festival',
+    title: 'Purcell Room',
     name: 'King\'s Ely Junior School Flute Choir',
-    src: 'images/portfolio/fullsize/peterborough.jpg',
-    thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
+    src: 'images/portfolio/fullsize/purcell.jpg',
+    thumbnail: 'images/portfolio/thumbnails/purcell.jpg'
   },
   {
     title: 'Suzuki Lessons',
@@ -23,11 +29,17 @@ const photos = [
   //   src: 'images/portfolio/fullsize/flutes_2.jpg',
   //   thumbnail: 'images/portfolio/thumbnails/flutes_2.jpg',
   // },
+  // {
+  //   title: 'ABRSM Results',
+  //   name: 'Sarah (Grade 8 Distinction) & Victoria (Diploma Distinction)',
+  //   src: 'images/portfolio/fullsize/flutes_7.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/flutes_7.jpg',
+  // },
   {
-    title: 'ABRSM Results',
-    name: 'Sarah (Grade 8 Distinction) & Victoria (Diploma Distinction)',
-    src: 'images/portfolio/fullsize/flutes_7.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_7.jpg',
+    title: 'Lara & Victoria',
+    name: 'Peterborough Music Festival 2019',
+    src: 'images/portfolio/fullsize/peterborough_2019.jpg',
+    thumbnail: 'images/portfolio/thumbnails/peterborough_2019.jpg',
   },
   {
     title: 'Ciara\'s Book 1 Recital',
@@ -42,11 +54,17 @@ const photos = [
     thumbnail: 'images/portfolio/thumbnails/flutes_4.jpg',
   },
   {
-    title: 'Suzuki Twinkle Party',
-    name: 'Harriet, Marianne, Cosima & Rachel',
-    src: 'images/portfolio/fullsize/flutes_5.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_5.jpg',
+    title: 'Oundle Music Festival 2019',
+    name: 'Lauren (U15 Winner)',
+    src: 'images/portfolio/fullsize/oundle_2019.jpg',
+    thumbnail: 'images/portfolio/thumbnails/oundle_2019.jpg',
   },
+  // {
+  //   title: 'Suzuki Twinkle Party',
+  //   name: 'Harriet, Marianne, Cosima & Rachel',
+  //   src: 'images/portfolio/fullsize/flutes_5.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/flutes_5.jpg',
+  // },
   // {
   //   title: 'Peterborough Music Festival',
   //   name: (<div>Top: Izzy, Lauren & Amy<br/>Bottom: Megan, Ciara & Hattie</div>),

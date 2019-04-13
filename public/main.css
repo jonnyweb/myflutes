@@ -9874,7 +9874,7 @@ header .header-content .header-content-inner p {
 #contact #submit-button > div {
   transition: all 2s ease;
 }
-#news #results {
+#news .results {
   display: flex;
   width: 100%;
   align-items: flex-start;
@@ -9882,17 +9882,24 @@ header .header-content .header-content-inner p {
   justify-content: center;
   flex-wrap: wrap;
 }
-#news #results h3 {
+#news .results h3 {
   display: block;
   width: 100%;
 }
-#news #results p {
+#news .results p {
   font-size: 1.4rem;
   text-align: center;
   flex: 1;
   max-width: 33%;
   min-width: 33%;
   padding: 10px 10px;
+}
+@media (max-width: 600px) {
+  #news .results p {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 #news span {
   display: block;

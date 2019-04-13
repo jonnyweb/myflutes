@@ -1,124 +1,110 @@
 import React from "react";
 
 import { Row, Col } from "react-bootstrap";
+import "./style.less"
+// <h3>King's Junior School Music Competition</h3>
+// <p>Congratulation to all of my pupils for the following results!</p>
+// <div id="results">
+//   <p>
+//     <span className="bold">Year 3/4 Woodwind</span>
+//     <span>Megan (1st), Molly (2nd)</span>
+//     <br />
+//     <span className="bold">Year 5/6 Woodwing</span>
+//     <span>Hattie (1st), Amy (2nd)</span>
+//     <br />
+//     <span className="bold">Year 7/8 Woodwind</span>
+//     <span>Sophie (1st), Lauren (2nd)</span>
+//   </p>
+// </div>
 
 const peterborough = (
   <div className="container">
     <Row>
       <Col lg={12} className="text-center">
-        <h2 className="section-heading">Peterborough Music Festival Results</h2>
+        <h2 className="section-heading">Peterborough & Oundle Music Festival Results</h2>
         <hr className="primary" />
 
         <p>
-          The Peterborough Music Festival 2018 was a great success for my pupils this year. They all played amazingly well and were given glowing reviews from the judge.
-          A special congratulations to Lara who managed to win the Under 18 Woodwind Solo class and also performed stylishly in the final concert to achieve runner up for the
-          Young Musician of the Year competition.
+          The Peterborough Music Festival 2019 was another great success for my pupils this year. They all played amazingly well and were given glowing reviews from the judge.
+          A special congratulations to Lara who managed to win the Under 18 Woodwind Solo class.
         </p>
 
-        <div id="results">
-          <h3>Class Results</h3>
+        <div className="results">
+          <h3>Peterborough Class Results</h3>
           <p>
             <span className="bold">Elementary & Grade 1 Solo</span>
-            <span>Distinction: Aoife, Agatha, Erin & Molly</span>
+            <span>Distinction: Aoife (Winner)</span>
           </p>
 
           <p>
             <span className="bold">Grade 2/3 Solo</span>
-            <span>Distinction: Megan (Winner), Harriet B & Harriet P</span>
-            <span>Commended: Nell, Isabel & Rebecca</span>
+            <span>Distinction: Agatha (Winner)</span>
+            <span>Commended: Cosima</span>
           </p>
 
           <p>
             <span className="bold">Grade 4/5 Solo</span>
-            <span>Distinction: Sophie (Winner) & Lauren</span>
-            <span>Commended: Olivia & Amy</span>
-          </p>
-
-          <p>
-            <span className="bold">Under 12 Duet</span>
-            <span>
-              Distinction: Rebecca & Agatha (Winners), Lauren & Sophie, Nell & Olivia
-            </span>
-            <span>
-              Commended: Harriet B & Harriet P, Isabel & Erin, Amy & Megan
-            </span>
+            <span>Distinction: Nell (Winner)</span>
           </p>
 
           <p>
             <span className="bold">Under 15 Solo</span>
             <span>Outstanding: Lara (Winner)</span>
-            <span>Distinction: Victoria, Sophie & Lauren</span>
+            <span>Distinction: Laure & Sophie</span>
           </p>
 
           <p>
             <span className="bold">Under 18 Solo</span>
-            <span>Distinction: Lara (Winner) & Victoria</span>
+            <span>Oustanding: Lara (Winner), Victoria & Lauren</span>
           </p>
 
           <p>
-            <span className="bold">Under 18 Duet</span>
-            <span>Distinction: Victoria & Lara (Winners)</span>
+            <span className="bold">Senior Duet</span>
+            <span>Oustanding: Victoria & Lara</span>
           </p>
+        </div>
 
-          <p>
-            <span className="bold">Junior Woodwind Ensemble</span>
-            <span>Outstanding: Kings Ely Junior Flute Choir</span>
-          </p>
+        <div class="results">
+          <h3>Oundle Class Results</h3>
+
         </div>
       </Col>
     </Row>
   </div>
 );
 
+
+// Exams released today.
+// Private  pupil
+// Grade 8 Lara 144 Distinction.
+// Kings pupils.
+
+// Sophie Grade 7 140 Distinction.
+// Charlotte grade 7 130 distinction
+// Helen grade 5 131 Distinction.
 const exams = (
   <div className="container">
     <Row>
       <Col lg={12} className="text-center">
-        <h2 className="section-heading">Latest News</h2>
+        <h2 className="section-heading">Recent ABRSM exams</h2>
         <hr className="primary" />
 
-        <h3>King's Junior School Music Competition</h3>
-        <p>Congratulation to all of my pupils for the following results!</p>
-        <div id="results">
-          <p>
-            <span className="bold">Year 3/4 Woodwind</span>
-            <span>Megan (1st), Molly (2nd)</span>
-            <br />
-            <span className="bold">Year 5/6 Woodwing</span>
-            <span>Hattie (1st), Amy (2nd)</span>
-            <br />
-            <span className="bold">Year 7/8 Woodwind</span>
-            <span>Sophie (1st), Lauren (2nd)</span>
-          </p>
-        </div>
-
-        <h3>Recent ABRSM exams</h3>
         <p>
-          I'd like to congratulate all of my pupils who recently achieved great results with the ABRSM exams.
+          I'd like to congratulate all of my pupils who recently achieved outstanding results with the ABRSM exams.
         </p>
 
-        <div id="results">
+        <div className="results">
           <p>
-            <span className="bold">Grade 2</span>
-            <span>Merit: Megan (128)</span>
-            <br />
-            <span className="bold">Grade 3</span>
-            <span>Distinction: Harriet (137)</span>
-            <span>Merit: Chinwe (120), Nell (128)</span>
-            <br />
-            <span className="bold">Grade 5</span>
-            <span>Distinction: Sophie (136)</span>
+            <span className="bold">Grade 8</span>
+            <span>Distinction: Lara (144)</span>
           </p>
-
           <p>
-            <span className="bold">Grade 5 Theory</span>
-            <span>Merit: Sophie (88)</span>
-            <br />
-            <span className="bold">Grade 6</span>
-            <span>Merit: Charlotte (122)</span>
-            <br />
             <span className="bold">Grade 7</span>
-            <span>Merit: Ellie (126)</span>
+            <span>Distinction: Sophie (140), Charlotte (130)</span>
+          </p>
+          <p>
+            <span className="bold">Grade 5</span>
+            <span>Distinction: Helen (131)</span>
           </p>
         </div>
       </Col>
@@ -127,5 +113,5 @@ const exams = (
 );
 
 export default function News() {
-  return <section id="news">{exams}</section>;
+  return <section id="news">{peterborough}{exams}</section>;
 }
