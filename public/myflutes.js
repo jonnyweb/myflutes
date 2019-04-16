@@ -15305,14 +15305,6 @@ var peterborough = _react2.default.createElement(
   )
 );
 
-// Exams released today.
-// Private  pupil
-// Grade 8 Lara 144 Distinction.
-// Kings pupils.
-
-// Sophie Grade 7 140 Distinction.
-// Charlotte grade 7 130 distinction
-// Helen grade 5 131 Distinction.
 var exams = _react2.default.createElement(
   "div",
   { className: "container" },
@@ -15347,7 +15339,7 @@ var exams = _react2.default.createElement(
           _react2.default.createElement(
             "span",
             null,
-            "Distinction: Lara (144)"
+            "Distinction: Lara (145)"
           )
         ),
         _react2.default.createElement(

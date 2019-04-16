@@ -73,15 +73,6 @@ const peterborough = (
   </div>
 );
 
-
-// Exams released today.
-// Private  pupil
-// Grade 8 Lara 144 Distinction.
-// Kings pupils.
-
-// Sophie Grade 7 140 Distinction.
-// Charlotte grade 7 130 distinction
-// Helen grade 5 131 Distinction.
 const exams = (
   <div className="container">
     <Row>
@@ -96,7 +87,7 @@ const exams = (
         <div className="results">
           <p>
             <span className="bold">Grade 8</span>
-            <span>Distinction: Lara (144)</span>
+            <span>Distinction: Lara (145)</span>
           </p>
           <p>
             <span className="bold">Grade 7</span>
