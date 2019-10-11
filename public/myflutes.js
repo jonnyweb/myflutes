@@ -15706,10 +15706,9 @@ var _reactBootstrap = __webpack_require__(115);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var videos = ['https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq', 'https://www.youtube.com/embed/EyWza7LDjck'];
+var videos = ['https://www.youtube.com/embed/97rnW6VdOUY', 'https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq'];
 
 function Videos() {
-
   var videoComponents = [];
 
   for (var i = 0; i < videos.length; i++) {
