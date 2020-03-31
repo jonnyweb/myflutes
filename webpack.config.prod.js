@@ -4,43 +4,40 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 const extractLess = new ExtractTextPlugin({
-  filename: "[name].css",
+  filename: '[name].css',
   publicPath: '/',
 });
 
 const processEnv = new webpack.DefinePlugin({
   'process.env': {
-    NODE_ENV: JSON.stringify('production')
-  }
+    NODE_ENV: JSON.stringify('production'),
+  },
 });
 
 const rules = [
   {
     test: /\.less$/,
     use: extractLess.extract({
-      use: [
-        { loader: "css-loader" },
-        { loader: "less-loader" }
-      ],
-      fallback: "style-loader"
-    })
+      use: [{ loader: 'css-loader' }, { loader: 'less-loader' }],
+      fallback: 'style-loader',
+    }),
   },
   {
     test: /\.(jpg)$/,
-    loader: 'file-loader?name=[path][name].[ext]&context=src/'
+    loader: 'file-loader?name=[path][name].[ext]&context=src/',
   },
   {
     test: /\.(eot|svg|ttf|woff|woff2)$/,
-    loader: 'file-loader?name=fonts/[name].[ext]'
+    loader: 'file-loader?name=fonts/[name].[ext]',
   },
   {
     test: /\.(js|es6)$/,
     exclude: /(node_modules|bower_components)/,
     loader: 'babel-loader',
     query: {
-      presets: ['es2015', 'stage-0']
-    }
-  }
+      presets: ['es2015', 'stage-0'],
+    },
+  },
 ];
 
 module.exports = {
@@ -56,10 +53,5 @@ module.exports = {
     noParse: /__tests__/,
   },
 
-  plugins: [
-    extractLess,
-    processEnv,
-    new UglifyJSPlugin(),
-  ],
+  plugins: [extractLess, processEnv, new UglifyJSPlugin()],
 };
-

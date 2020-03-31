@@ -3,8 +3,9 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 const videos = [
+  'https://www.youtube.com/embed/EyWza7LDjck',
   'https://www.youtube.com/embed/97rnW6VdOUY',
-  'https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq',
+  // 'https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq',
   // 'https://www.youtube.com/embed/EyWza7LDjck',
   // 'https://www.youtube.com/embed/3Tpu8ezUQRE',
   //'https://www.youtube.com/embed/Ua-r_2bdo7E',
@@ -16,7 +17,7 @@ export default function Videos() {
 
   for (let i = 0; i < videos.length; i++) {
     videoComponents.push(
-      <Col lg={6} sm={6} xs={12}>
+      <Col lg={6} sm={6} xs={12} key={`v${i}`}>
         <div className="video">
           <iframe src={videos[i]} frameBorder="0" allowFullScreen />
         </div>

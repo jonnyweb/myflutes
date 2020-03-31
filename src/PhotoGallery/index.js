@@ -12,10 +12,22 @@ const photos = [
   //   thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
   // },
   {
+    title: 'KSE Young Musician of the Year 2020',
+    name: 'Victoria Receiving the Walser Trophy',
+    src: 'images/portfolio/fullsize/kseym_1.jpg',
+    thumbnail: 'images/portfolio/thumbnails/kseym_1_thumb.jpg',
+  },
+  {
     title: 'Purcell Room',
-    name: 'King\'s Ely Junior School Flute Choir',
+    name: "King's Ely Junior School Flute Choir",
     src: 'images/portfolio/fullsize/purcell.jpg',
-    thumbnail: 'images/portfolio/thumbnails/purcell.jpg'
+    thumbnail: 'images/portfolio/thumbnails/purcell.jpg',
+  },
+  {
+    title: 'KSE Young Musician of the Year 2020',
+    name: 'Lauren Playing in the Final',
+    src: 'images/portfolio/fullsize/kseym_2.jpg',
+    thumbnail: 'images/portfolio/thumbnails/kseym_2_thumb.jpg',
   },
   {
     title: 'Suzuki Lessons',
@@ -35,14 +47,15 @@ const photos = [
   //   src: 'images/portfolio/fullsize/flutes_7.jpg',
   //   thumbnail: 'images/portfolio/thumbnails/flutes_7.jpg',
   // },
+  // {
+  //   title: 'Lara & Victoria',
+  //   name: 'Peterborough Music Festival 2019',
+  //   src: 'images/portfolio/fullsize/peterborough_2019.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/peterborough_2019.jpg',
+  // },
+
   {
-    title: 'Lara & Victoria',
-    name: 'Peterborough Music Festival 2019',
-    src: 'images/portfolio/fullsize/peterborough_2019.jpg',
-    thumbnail: 'images/portfolio/thumbnails/peterborough_2019.jpg',
-  },
-  {
-    title: 'Ciara\'s Book 1 Recital',
+    title: "Ciara's Book 1 Recital",
     name: 'Performers Photo',
     src: 'images/portfolio/fullsize/flutes_3.jpg',
     thumbnail: 'images/portfolio/thumbnails/flutes_3.jpg',
@@ -53,12 +66,13 @@ const photos = [
     src: 'images/portfolio/fullsize/flutes_4.jpg',
     thumbnail: 'images/portfolio/thumbnails/flutes_4.jpg',
   },
-  {
-    title: 'Oundle Music Festival 2019',
-    name: 'Lauren (U15 Winner)',
-    src: 'images/portfolio/fullsize/oundle_2019.jpg',
-    thumbnail: 'images/portfolio/thumbnails/oundle_2019.jpg',
-  },
+
+  // {
+  //   title: 'Oundle Music Festival 2019',
+  //   name: 'Lauren (U15 Winner)',
+  //   src: 'images/portfolio/fullsize/oundle_2019.jpg',
+  //   thumbnail: 'images/portfolio/thumbnails/oundle_2019.jpg',
+  // },
   // {
   //   title: 'Suzuki Twinkle Party',
   //   name: 'Harriet, Marianne, Cosima & Rachel',
@@ -80,7 +94,7 @@ export default class PhotoGallery extends React.Component {
 
     this.state = {
       lightboxIsOpen: false,
-    }
+    };
 
     this.lightBoxImages = photos.map((c, i) => {
       c.caption = `${c.title} - ${c.caption || c.name}`;
@@ -91,57 +105,51 @@ export default class PhotoGallery extends React.Component {
   openLightbox = (i, e) => {
     e.preventDefault();
     this.setState({
-			currentImage: i,
-			lightboxIsOpen: true,
-		});
-  }
+      currentImage: i,
+      lightboxIsOpen: true,
+    });
+  };
 
   closeLightbox = () => {
     this.setState({
       lightboxIsOpen: false,
     });
-  }
+  };
 
   gotoNextLightboxImage = () => {
     this.setState({
       currentImage: this.state.currentImage + 1,
     });
-  }
+  };
 
   gotoPrevLightboxImage = () => {
     this.setState({
       currentImage: this.state.currentImage - 1,
     });
-  }
+  };
 
   render() {
-
-    const photoBoxes = photos.reduce(
-      (p, c, i) => {
-        p.push(
-          <PhotoBox
-            index={i}
-            key={`${c.title}${c.src}`}
-            title={c.title}
-            name={c.name}
-            image={c.src}
-            thumbnail={c.thumbnail}
-            openLightbox={this.openLightbox}
-          />
-        );
-        require(`../${c.thumbnail}`);
-        require(`../${c.src}`);
-        return p;
-      },
-      []
-    );
+    const photoBoxes = photos.reduce((p, c, i) => {
+      p.push(
+        <PhotoBox
+          index={i}
+          key={`${c.title}${c.src}`}
+          title={c.title}
+          name={c.name}
+          image={c.src}
+          thumbnail={c.thumbnail}
+          openLightbox={this.openLightbox}
+        />
+      );
+      require(`../${c.thumbnail}`);
+      require(`../${c.src}`);
+      return p;
+    }, []);
 
     return (
       <section className={'no-padding'} id="photos">
         <div className={'container-fluid'}>
-          <div className={'row no-gutter popup-gallery'}>
-            {photoBoxes}
-          </div>
+          <div className={'row no-gutter popup-gallery'}>{photoBoxes}</div>
         </div>
         <Lightbox
           images={this.lightBoxImages}
