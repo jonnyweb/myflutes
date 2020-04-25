@@ -3,8 +3,10 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 const videos = [
-  'https://www.youtube.com/embed/EyWza7LDjck',
-  'https://www.youtube.com/embed/97rnW6VdOUY',
+  'https://www.youtube.com/embed/_9exikmOe_o',
+  'https://www.youtube.com/embed/Gt_c1eeyyX4',
+  // 'https://www.youtube.com/embed/EyWza7LDjck',
+  // 'https://www.youtube.com/embed/97rnW6VdOUY',
   // 'https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq',
   // 'https://www.youtube.com/embed/EyWza7LDjck',
   // 'https://www.youtube.com/embed/3Tpu8ezUQRE',
