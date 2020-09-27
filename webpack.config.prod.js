@@ -1,11 +1,13 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-const extractLess = new ExtractTextPlugin({
-  filename: '[name].css',
-  publicPath: '/',
+const extractCss = new MiniCssExtractPlugin({
+  moduleFilename: ({ name }) =>
+    getModuleName(name, {
+      hashed: '[name].css',
+      unhashed: '[name].css',
+    }),
 });
 
 const processEnv = new webpack.DefinePlugin({
@@ -16,11 +18,8 @@ const processEnv = new webpack.DefinePlugin({
 
 const rules = [
   {
-    test: /\.less$/,
-    use: extractLess.extract({
-      use: [{ loader: 'css-loader' }, { loader: 'less-loader' }],
-      fallback: 'style-loader',
-    }),
+    test: /\.s?css$/,
+    loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
   },
   {
     test: /\.(jpg)$/,
@@ -31,17 +30,15 @@ const rules = [
     loader: 'file-loader?name=fonts/[name].[ext]',
   },
   {
-    test: /\.(js|es6)$/,
-    exclude: /(node_modules|bower_components)/,
+    test: /\.(js)$/,
+    exclude: /(node_modules)/,
     loader: 'babel-loader',
-    query: {
-      presets: ['es2015', 'stage-0'],
-    },
   },
 ];
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'production',
 
   output: {
     path: path.join(__dirname, 'public'),
@@ -53,5 +50,5 @@ module.exports = {
     noParse: /__tests__/,
   },
 
-  plugins: [extractLess, processEnv, new UglifyJSPlugin()],
+  plugins: [extractCss, processEnv],
 };

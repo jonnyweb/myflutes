@@ -1,98 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Lightbox from 'react-image-lightbox';
 
 import PhotoBox from './PhotoBox';
-import jsxToString from 'jsx-to-string';
-import Lightbox from 'react-images';
+
+import './style.scss';
 
 const photos = [
-  // {
-  //   title: 'Peterborough Music Festival',
-  //   name: 'King\'s Ely Junior School Flute Choir',
-  //   src: 'images/portfolio/fullsize/peterborough.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/peterborough.jpg'
-  // },
   {
     title: 'KSE Young Musician of the Year 2020',
     name: 'Victoria Receiving the Walser Trophy',
-    src: 'images/portfolio/fullsize/kseym_1.jpg',
-    thumbnail: 'images/portfolio/thumbnails/kseym_1_thumb.jpg',
+    src: require('../images/portfolio/fullsize/kseym_1.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/kseym_1_thumb.jpg'),
   },
   {
     title: 'Purcell Room',
     name: "King's Ely Junior School Flute Choir",
-    src: 'images/portfolio/fullsize/purcell.jpg',
-    thumbnail: 'images/portfolio/thumbnails/purcell.jpg',
+    src: require('../images/portfolio/fullsize/purcell.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/purcell.jpg'),
   },
   {
     title: 'KSE Young Musician of the Year 2020',
     name: 'Lauren Playing in the Final',
-    src: 'images/portfolio/fullsize/kseym_2.jpg',
-    thumbnail: 'images/portfolio/thumbnails/kseym_2_thumb.jpg',
+    src: require('../images/portfolio/fullsize/kseym_2.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/kseym_2_thumb.jpg'),
   },
   {
     title: 'Suzuki Lessons',
     name: 'Marianne & Eleanor',
-    src: 'images/portfolio/fullsize/flutes_1.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_1.jpg',
+    src: require('../images/portfolio/fullsize/flutes_1.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/flutes_1.jpg'),
   },
-  // {
-  //   title: 'Suzuki Lessons',
-  //   name: 'Marianne & Cosima',
-  //   src: 'images/portfolio/fullsize/flutes_2.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/flutes_2.jpg',
-  // },
-  // {
-  //   title: 'ABRSM Results',
-  //   name: 'Sarah (Grade 8 Distinction) & Victoria (Diploma Distinction)',
-  //   src: 'images/portfolio/fullsize/flutes_7.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/flutes_7.jpg',
-  // },
-  // {
-  //   title: 'Lara & Victoria',
-  //   name: 'Peterborough Music Festival 2019',
-  //   src: 'images/portfolio/fullsize/peterborough_2019.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/peterborough_2019.jpg',
-  // },
-
   {
     title: "Ciara's Book 1 Recital",
     name: 'Performers Photo',
-    src: 'images/portfolio/fullsize/flutes_3.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_3.jpg',
+    src: require('../images/portfolio/fullsize/flutes_3.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/flutes_3.jpg'),
   },
   {
     title: 'Suzuki Summer School 2017',
     name: 'Liz & Her Pupils',
-    src: 'images/portfolio/fullsize/flutes_4.jpg',
-    thumbnail: 'images/portfolio/thumbnails/flutes_4.jpg',
+    src: require('../images/portfolio/fullsize/flutes_4.jpg'),
+    thumbnail: require('../images/portfolio/thumbnails/flutes_4.jpg'),
   },
-
-  // {
-  //   title: 'Oundle Music Festival 2019',
-  //   name: 'Lauren (U15 Winner)',
-  //   src: 'images/portfolio/fullsize/oundle_2019.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/oundle_2019.jpg',
-  // },
-  // {
-  //   title: 'Suzuki Twinkle Party',
-  //   name: 'Harriet, Marianne, Cosima & Rachel',
-  //   src: 'images/portfolio/fullsize/flutes_5.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/flutes_5.jpg',
-  // },
-  // {
-  //   title: 'Peterborough Music Festival',
-  //   name: (<div>Top: Izzy, Lauren & Amy<br/>Bottom: Megan, Ciara & Hattie</div>),
-  //   caption: 'Top: Izzy, Lauren & Amy, Bottom: Megan, Ciara & Hattie',
-  //   src: 'images/portfolio/fullsize/flutes_6.jpg',
-  //   thumbnail: 'images/portfolio/thumbnails/flutes_6.jpg',
-  // },
 ];
 
 export default class PhotoGallery extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
+      currentImage: 0,
       lightboxIsOpen: false,
     };
 
@@ -104,6 +61,8 @@ export default class PhotoGallery extends React.Component {
 
   openLightbox = (i, e) => {
     e.preventDefault();
+    e.stopPropagation();
+
     this.setState({
       currentImage: i,
       lightboxIsOpen: true,
@@ -128,37 +87,59 @@ export default class PhotoGallery extends React.Component {
     });
   };
 
-  render() {
-    const photoBoxes = photos.reduce((p, c, i) => {
-      p.push(
+  renderPhotoBoxes() {
+    return photos.reduce((previous, current, index) => {
+      previous.push(
         <PhotoBox
-          index={i}
-          key={`${c.title}${c.src}`}
-          title={c.title}
-          name={c.name}
-          image={c.src}
-          thumbnail={c.thumbnail}
-          openLightbox={this.openLightbox}
+          key={`${current.title}${current.src}`}
+          title={current.title}
+          name={current.name}
+          image={current.src}
+          thumbnail={current.thumbnail}
+          openLightbox={this.openLightbox.bind(this, index)}
         />
       );
-      require(`../${c.thumbnail}`);
-      require(`../${c.src}`);
-      return p;
-    }, []);
 
+      return previous;
+    }, []);
+  }
+
+  renderLightbox() {
+    const { lightboxIsOpen, currentImage } = this.state;
+    if (!lightboxIsOpen) return;
+
+    const props = {
+      mainSrc: photos[currentImage].src,
+      imageCaption: (
+        <>
+          <b>{photos[currentImage].title}</b>: {photos[currentImage].name}
+        </>
+      ),
+      onMovePrevRequest: this.gotoPrevLightboxImage,
+      onMoveNextRequest: this.gotoNextLightboxImage,
+      onCloseRequest: this.closeLightbox,
+    };
+
+    if (currentImage > 0) {
+      props.prevSrc = photos[currentImage - 1].src;
+    }
+
+    if (currentImage < photos.length - 1) {
+      props.nextSrc = photos[currentImage + 1].src;
+    }
+
+    console.log(props);
+    return <Lightbox {...props} />;
+  }
+
+  render() {
     return (
       <section className={'no-padding'} id="photos">
         <div className={'container-fluid'}>
-          <div className={'row no-gutter popup-gallery'}>{photoBoxes}</div>
+          <div className={'row no-gutter popup-gallery'}>{this.renderPhotoBoxes()}</div>
         </div>
-        <Lightbox
-          images={this.lightBoxImages}
-          isOpen={this.state.lightboxIsOpen}
-          currentImage={this.state.currentImage}
-          onClickPrev={this.gotoPrevLightboxImage}
-          onClickNext={this.gotoNextLightboxImage}
-          onClose={this.closeLightbox}
-        />
+
+        {this.renderLightbox()}
       </section>
     );
   }

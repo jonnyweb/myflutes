@@ -1,37 +1,64 @@
-import React, { Component, PropTypes } from 'react';
-import { AutoAffix } from 'react-overlays';
-import { Link } from 'react-scroll';
+import React, { PureComponent } from "react"
 
-import './style.less';
-import { eventList } from '../Events';
+import { Link } from "react-scroll"
+import { eventList } from "../Events"
 
-export default class NavBar extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-  };
+import "./style.scss"
 
+const debounce = fn => {
+  // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+  let frame
+
+  // The debounce function returns a new function that can receive a variable number of arguments
+  return (...params) => {
+    // If the frame variable has been defined, clear it now, and queue for next frame
+    if (frame) {
+      cancelAnimationFrame(frame)
+    }
+
+    // Queue our function call for the next frame
+    frame = requestAnimationFrame(() => {
+      // Call our function and pass any params we received
+      fn(...params)
+    })
+  }
+}
+
+export default class NavBar extends PureComponent {
   constructor() {
-    super();
+    super()
+
     this.state = {
       showNavBar: false,
-    };
+      affix: false,
+    }
   }
 
-  triggerNav = state => {
+  componentDidMount() {
+    document.addEventListener("scroll", debounce(this.storeScroll), {
+      passive: true,
+    })
+  }
+
+  storeScroll = () => {
+    this.setState({ affix: window.scrollY > 10 })
+  }
+
+  triggerNav = () => {
     this.setState({
-      showNavBar: state ? state : !this.state.showNavBar,
-    });
-  };
+      showNavBar: !this.state.showNavBar,
+    })
+  }
 
   render() {
-    const { children } = this.props;
-    const navItems = [];
+    const { children } = this.props
+    const navItems = []
 
     React.Children.forEach(children, child => {
-      const { href, name } = child.props;
+      const { href, name } = child.props
 
       if (name) {
-        if (name === "Events" && eventList.length === 0) return;
+        if (name === "Events" && eventList.length === 0) return
         navItems.push(
           <li key={name}>
             <Link
@@ -45,48 +72,49 @@ export default class NavBar extends Component {
               {name}
             </Link>
           </li>
-        );
+        )
       }
-    });
+    })
 
-    const collapse = this.state.showNavBar ? '' : 'collapse';
+    const collapse = this.state.showNavBar ? "" : "collapse"
 
     return (
-      <div>
-        <AutoAffix offsetTop={100} affixClassName="affix">
-          <nav id="mainNav" className="navbar navbar-default navbar-fixed-top">
-            <div className="container-fluid">
-              <div className="navbar-header">
-                <button
-                  type="button"
-                  className="navbar-toggle collapsed"
-                  data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1"
-                  onClick={this.triggerNav}
-                >
-                  <span className="sr-only">Toggle navigation</span>
-                  Menu
-                  <i className="fa fa-bars" />
-                </button>
-                <a className="navbar-brand page-scroll" href="#page-top">
-                  Liz Hargest
-                </a>
-              </div>
+      <>
+        <nav
+          id="mainNav"
+          className={`${
+            this.state.affix ? "affix" : ""
+          } navbar navbar-expand-lg navbar-toggler navbar-default`}
+        >
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand page-scroll" href="#page-top">
+                Liz Hargest
+              </a>
 
-              <div
-                className={`${collapse} navbar-collapse`}
-                id="bs-example-navbar-collapse-1"
+              <button
+                className={`navbar-toggler ${collapse ? "collapsed" : ""}`}
+                type="button"
+                data-toggle="collapse"
+                aria-expanded={this.state.showNavBar}
+                aria-label="Toggle navigation"
+                onClick={this.triggerNav}
               >
-                <ul className="nav navbar-nav navbar-right">
-                  {navItems}
-                </ul>
-              </div>
+                Menu
+                <i className="navbar-toggler-icon fa fa-bars" />
+              </button>
             </div>
-          </nav>
-        </AutoAffix>
+          </div>
+          <div
+            className={`${collapse} navbar-collapse`}
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul className="nav navbar-nav navbar-right">{navItems}</ul>
+          </div>
+        </nav>
 
         {this.props.children}
-      </div>
-    );
+      </>
+    )
   }
 }

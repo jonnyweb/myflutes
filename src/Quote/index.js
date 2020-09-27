@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from "react"
+import PropTypes from "prop-types"
 
-import './style.less';
+import "./style.scss"
 
 export default function Quote(props) {
   return (
@@ -16,10 +17,10 @@ export default function Quote(props) {
         </div>
       </div>
     </aside>
-  );
+  )
 }
 
-Quote.PropTypes = {
+Quote.propTypes = {
   content: PropTypes.string,
   author: PropTypes.string,
 }

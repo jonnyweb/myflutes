@@ -1,0 +1,72 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.photo-box {
+  position: relative;
+  display: block;
+  max-width: 650px;
+  margin: 0 auto;
+
+  img {
+    max-width: 100%;
+  }
+
+  .photo-box-caption {
+    color: white;
+    opacity: 0;
+    display: block;
+    background: rgba(map-get($theme-colors, 'primary'), 0.9);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    .photo-box-caption-content {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      .photo-category,
+      .photo-name {
+        padding: 0 15px;
+      }
+
+      .photo-category {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .photo-name {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &:hover {
+    .photo-box-caption {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    .photo-box-caption {
+      .photo-box-caption-content {
+        .photo-category {
+          font-size: 16px;
+        }
+        .photo-name {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

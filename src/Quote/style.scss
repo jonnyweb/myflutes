@@ -1,0 +1,40 @@
+.ctaStyle {
+  display: block;
+  padding: 0 20%;
+}
+
+.h2Style {
+  font-size: 1.3rem;
+  position: relative;
+  margin: 0 auto;
+  display: inline;
+  line-height: 2rem;
+  text-align: left;
+}
+
+.spanStyle1 {
+  font-size: 7rem;
+  position: absolute;
+  top: 1.6rem;
+  font-family: serif;
+  left: -3.5rem;
+  line-height: 1rem;
+}
+
+.spanStyle2 {
+  font-size: 5rem;
+  position: absolute;
+  bottom: -0.8rem;
+  right: -4rem;
+  font-family: serif;
+  opacity: 0.4;
+  line-height: 1rem;
+}
+
+.author {
+  display: block;
+  font-size: 1.2rem;
+  text-align: right;
+  font-style: italic;
+  opacity: 0.5;
+}
