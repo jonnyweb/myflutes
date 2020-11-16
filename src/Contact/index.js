@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Row, FormLabel, FormGroup, FormControl } from 'react-bootstrap'
-import Recaptcha from 'react-recaptcha'
 
 import './style.scss'
 
@@ -8,6 +7,7 @@ export default class ContactUs extends Component {
   constructor() {
     super()
 
+    this.formRef = React.createRef()
     this.state = {
       form: {
         name: '',
@@ -15,37 +15,30 @@ export default class ContactUs extends Component {
         number: '',
         subject: '',
         message: '',
-        'g-recaptcha-response': '',
       },
       formValidated: false,
       formSent: false,
-      publicKey: null,
     }
   }
 
-  componentDidMount() {
-    const publicKey =
-      window.location.protocol === 'file:'
-        ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-        : '6Lfqcc8SAAAAAMeP6t0eCQkbQEKTIXit-_-xWHvy'
-    this.setState({ publicKey })
-  }
-
-  getRecaptcha = () => {
-    if (!this.state.publicKey) return
-
-    return <Recaptcha render="explicit" verifyCallback={this.verifyCallback} sitekey={this.state.publicKey} />
+  encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
   }
 
   sendMessage = () => {
-    let xhr = new XMLHttpRequest()
-    xhr.open('POST', '/mail.php')
-    xhr.send(JSON.stringify(this.state.form))
-    this.setState({ formSent: true })
-  }
+    const formData = new FormData(this.formRef.current)
 
-  verifyCallback = (response) => {
-    this.setFormValue('g-recaptcha-response', response)
+    fetch
+      .open('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        this.setState({ formSent: true })
+      })
   }
 
   handleChange = (e) => {
@@ -64,8 +57,7 @@ export default class ContactUs extends Component {
       !!this.state.form.email &&
       !!this.state.form.number &&
       !!this.state.form.subject &&
-      !!this.state.form.message &&
-      !!this.state.form['g-recaptcha-response']
+      !!this.state.form.message
     ) {
       this.setState({ formValidated: true })
     }
@@ -125,15 +117,14 @@ export default class ContactUs extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
-
-          <FormGroup controlId="reCAPTCHA">{this.getRecaptcha()}</FormGroup>
+          <div data-netlify-recaptcha="true"></div>
         </div>
       </Row>
     )
   }
 
   render() {
-    if (!this.state.publicKey) return null
+    // if (!this.state.publicKey) return null
 
     let form = null
 
@@ -161,7 +152,7 @@ export default class ContactUs extends Component {
     return (
       <section id="contact">
         <div className="container">
-          <form data-netlify="true">
+          <form data-netlify="true" data-netlify-recaptcha="true" ref={this.formRef}>
             <Row>
               <div className="col-lg-8 col-lg-offset-2 text-center">
                 <h2 className="section-heading">Get In Touch!</h2>
