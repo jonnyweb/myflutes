@@ -2,3 +2,4 @@ node_modules
 mail.php
 public
 *.log
+.DS_Store

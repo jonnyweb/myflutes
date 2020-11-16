@@ -15,7 +15,7 @@ const rules = [
       {
         loader: 'file-loader',
         options: {
-          name: 'assets/[name].[hash:8].[ext]',
+          name: 'assets/[name].[contenthash:8].[ext]',
           limit: 10,
         },
       },
@@ -33,7 +33,6 @@ const rules = [
         loader: 'prerender-loader',
         options: {
           string: true,
-          entry: 'src/index.js',
         },
       },
     ],
@@ -42,7 +41,7 @@ const rules = [
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'development',
+  mode: 'production',
 
   devServer: {
     contentBase: './',
@@ -55,7 +54,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'myflutes.[hash:8].js',
+    filename: 'myflutes.[contenthash:8].js',
   },
 
   module: {
@@ -64,16 +63,37 @@ module.exports = {
   },
 
   stats: { children: false, modules: false, entrypoints: true },
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /node_modules/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'myflutes.[hash:8].css',
+      filename: 'myflutes.[contenthash:8].css',
     }),
     new HtmlWebpackPlugin({
       filename: `index.html`,
       template: `src/index.html`,
-      // compile: true,
+      compile: true,
       inject: true,
       scriptLoading: 'defer',
     }),

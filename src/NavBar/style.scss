@@ -11,6 +11,7 @@
   @include sans-serif-font;
   @include transition-all;
 
+  background: white;
   border: 0px;
   border-bottom: 1px solid;
   border-color: rgba(var(--gray-darker), 0.05);
@@ -52,6 +53,7 @@
     align-self: flex-end;
     flex-wrap: nowrap;
     margin-left: auto;
+    background: white;
 
     > li {
       display: flex;
@@ -62,7 +64,8 @@
         text-transform: uppercase;
         font-weight: 700;
         font-size: 15px;
-        color: rgba(255, 255, 255, 0.9);
+        color: black;
+
         cursor: pointer;
 
         &:hover {
@@ -96,6 +99,14 @@
     .navbar-collapse {
       position: unset;
       background: unset;
+    }
+
+    .nav {
+      background: transparent;
+
+      > li > a {
+        color: white;
+      }
     }
 
     &.affix {

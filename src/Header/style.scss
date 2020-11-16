@@ -16,7 +16,7 @@ header {
   color: white;
 
   @media (max-width: 480px) {
-    background-position: 48rem;
+    background-position: 35rem;
   }
 
   .header-content {
@@ -27,15 +27,15 @@ header {
     margin-top: 0;
 
     @media (max-width: 320px) {
-      margin-top: 220px;
+      padding-top: 220px;
     }
 
     @media (min-width: 321px) and (max-width: 480px) {
-      margin-top: 180px;
+      padding-top: 180px;
     }
 
     @media (min-width: 480px) and (max-width: 1100px) {
-      margin-top: 120px;
+      padding-top: 120px;
     }
 
     .header-content-inner {
