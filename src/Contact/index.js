@@ -150,7 +150,13 @@ export default class ContactUs extends Component {
     return (
       <section id="contact">
         <div className="container">
-          <form data-netlify="true" data-netlify-recaptcha="true" ref={this.formRef} name="myflutes-contact">
+          <form
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            ref={this.formRef}
+            name="myflutes-contact"
+          >
             <input type="hidden" name="form-name" value="myflutes-contact" />
             <Row>
               <div className="col-lg-8 col-lg-offset-2 text-center">
