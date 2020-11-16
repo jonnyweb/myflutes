@@ -24,7 +24,7 @@ export default function Videos() {
     videoComponents.push(
       <Col lg={6} sm={6} xs={12} key={`v${i}`}>
         <div className="video">
-          <iframe title={`video${i}`} src={videos[i]} frameBorder="0" allowFullScreen />
+          <iframe title={`video${i}`} src={videos[i]} frameBorder="0" allowFullScreen loading="lazy" />
         </div>
       </Col>
     )
@@ -38,7 +38,7 @@ export default function Videos() {
             <h2 className="section-heading">Videos</h2>
             <hr className="primary" />
           </Col>
-          <LazyLoad>{videoComponents}</LazyLoad>
+          {videoComponents}
         </Row>
       </div>
     </section>
