@@ -1,3 +1,4 @@
 node_modules
 mail.php
 public
+*.log

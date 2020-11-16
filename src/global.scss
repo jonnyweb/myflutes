@@ -1,11 +1,11 @@
-$fa-font-path: "~font-awesome/fonts/";
+$fa-font-path: '~font-awesome/fonts/';
 
-@import "variables.scss";
-@import "mixins.scss";
-@import "~react-image-lightbox/style.css";
+@import 'variables.scss';
+@import 'mixins.scss';
+@import '~react-image-lightbox/style.css';
 
-@import "~font-awesome/scss/font-awesome.scss";
-@import "~bootstrap/scss/bootstrap.scss";
+@import '~font-awesome/scss/font-awesome.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 
 body {
   @include serif-font;
@@ -13,7 +13,7 @@ body {
 }
 
 hr {
-  border-color: map-get($theme-colors, "primary");
+  border-color: map-get($theme-colors, 'primary');
   border-width: 3px;
   max-width: 50px;
 }
@@ -28,7 +28,7 @@ a {
 
   &:hover,
   &:focus {
-    color: darken(map-get($theme-colors, "primary"), 10%);
+    color: darken(map-get($theme-colors, 'primary'), 10%);
   }
 }
 
@@ -52,7 +52,7 @@ p {
 }
 
 .bg-dark {
-  background-color: map-get($colors, "gray-darker");
+  background-color: map-get($colors, 'gray-darker');
   color: white;
 }
 
@@ -100,14 +100,14 @@ aside {
   color: $theme-primary;
 }
 
-.no-gutter > [class*="col-"] {
+.no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0;
 }
 
 // Button Styles
 .btn-default {
-  @include button-variant(map-get($colors, "gray-darker"), white, white);
+  @include button-variant(map-get($colors, 'gray-darker'), white, white);
 }
 
 .btn {
@@ -128,13 +128,13 @@ aside {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: map-get($colors, "gray-darker");
+  background: map-get($colors, 'gray-darker');
 }
 
 ::selection {
   color: white;
   text-shadow: none;
-  background: map-get($colors, "gray-darker");
+  background: map-get($colors, 'gray-darker');
 }
 
 img::selection {
@@ -148,7 +148,7 @@ img::-moz-selection {
 }
 
 body {
-  webkit-tap-highlight-color: map-get($colors, "gray-darker");
+  webkit-tap-highlight-color: map-get($colors, 'gray-darker');
 }
 
 .hex-bg {

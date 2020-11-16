@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Row, FormLabel, FormGroup, FormControl } from 'react-bootstrap';
-import Recaptcha from 'react-recaptcha';
+import React, { Component } from 'react'
+import { Row, FormLabel, FormGroup, FormControl } from 'react-bootstrap'
+import Recaptcha from 'react-recaptcha'
 
-import './style.scss';
+import './style.scss'
 
 export default class ContactUs extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       form: {
@@ -20,44 +20,44 @@ export default class ContactUs extends Component {
       formValidated: false,
       formSent: false,
       publicKey: null,
-    };
+    }
   }
 
   componentDidMount() {
     const publicKey =
       window.location.protocol === 'file:'
         ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-        : '6Lfqcc8SAAAAAMeP6t0eCQkbQEKTIXit-_-xWHvy';
-    this.setState({ publicKey });
+        : '6Lfqcc8SAAAAAMeP6t0eCQkbQEKTIXit-_-xWHvy'
+    this.setState({ publicKey })
   }
 
   getRecaptcha = () => {
-    if (!this.state.publicKey) return;
+    if (!this.state.publicKey) return
 
-    return <Recaptcha render="explicit" verifyCallback={this.verifyCallback} sitekey={this.state.publicKey} />;
-  };
+    return <Recaptcha render="explicit" verifyCallback={this.verifyCallback} sitekey={this.state.publicKey} />
+  }
 
   sendMessage = () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/mail.php');
-    xhr.send(JSON.stringify(this.state.form));
-    this.setState({ formSent: true });
-  };
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', '/mail.php')
+    xhr.send(JSON.stringify(this.state.form))
+    this.setState({ formSent: true })
+  }
 
   verifyCallback = (response) => {
-    this.setFormValue('g-recaptcha-response', response);
-  };
+    this.setFormValue('g-recaptcha-response', response)
+  }
 
   handleChange = (e) => {
-    this.setFormValue(e.target.name, e.target.value);
-  };
+    this.setFormValue(e.target.name, e.target.value)
+  }
 
   setFormValue(key, value) {
     this.setState({
       form: Object.assign(this.state.form, {
         [key]: value,
       }),
-    });
+    })
 
     if (
       !!this.state.form.name &&
@@ -67,7 +67,7 @@ export default class ContactUs extends Component {
       !!this.state.form.message &&
       !!this.state.form['g-recaptcha-response']
     ) {
-      this.setState({ formValidated: true });
+      this.setState({ formValidated: true })
     }
   }
 
@@ -119,7 +119,7 @@ export default class ContactUs extends Component {
             <FormLabel>Message</FormLabel>
             <FormControl
               name="message"
-              componentClass="textarea"
+              as="textarea"
               value={this.state.form.message}
               placeholder="Message"
               onChange={this.handleChange}
@@ -129,18 +129,20 @@ export default class ContactUs extends Component {
           <FormGroup controlId="reCAPTCHA">{this.getRecaptcha()}</FormGroup>
         </div>
       </Row>
-    );
+    )
   }
 
   render() {
-    let form = null;
+    if (!this.state.publicKey) return null
+
+    let form = null
 
     if (!this.state.formSent) {
-      form = this.getForm();
+      form = this.getForm()
     }
 
-    let color = this.state.formSent ? 'btn-secondary' : 'btn-primary';
-    let message = this.state.formSent ? 'Sucessfully Sent' : 'Send Message';
+    let color = this.state.formSent ? 'btn-secondary' : 'btn-primary'
+    let message = this.state.formSent ? 'Sucessfully Sent' : 'Send Message'
 
     let button = this.state.formValidated ? (
       <FormGroup controlId="Submit" id="submit-button" className="text-center">
@@ -154,7 +156,7 @@ export default class ContactUs extends Component {
           {message}
         </div>
       </FormGroup>
-    );
+    )
 
     return (
       <section id="contact">
@@ -171,6 +173,6 @@ export default class ContactUs extends Component {
           </form>
         </div>
       </section>
-    );
+    )
   }
 }

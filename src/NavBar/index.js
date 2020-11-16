@@ -1,24 +1,18 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent } from 'react'
 
-import { Link } from "react-scroll"
-import { eventList } from "../Events"
+import { Link } from 'react-scroll'
+import { eventList } from '../Events'
 
-import "./style.scss"
+import './style.scss'
 
-const debounce = fn => {
-  // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+const debounce = (fn) => {
   let frame
-
-  // The debounce function returns a new function that can receive a variable number of arguments
   return (...params) => {
-    // If the frame variable has been defined, clear it now, and queue for next frame
     if (frame) {
       cancelAnimationFrame(frame)
     }
 
-    // Queue our function call for the next frame
     frame = requestAnimationFrame(() => {
-      // Call our function and pass any params we received
       fn(...params)
     })
   }
@@ -35,7 +29,7 @@ export default class NavBar extends PureComponent {
   }
 
   componentDidMount() {
-    document.addEventListener("scroll", debounce(this.storeScroll), {
+    document.addEventListener('scroll', debounce(this.storeScroll), {
       passive: true,
     })
   }
@@ -54,11 +48,11 @@ export default class NavBar extends PureComponent {
     const { children } = this.props
     const navItems = []
 
-    React.Children.forEach(children, child => {
+    React.Children.forEach(children, (child) => {
       const { href, name } = child.props
 
       if (name) {
-        if (name === "Events" && eventList.length === 0) return
+        if (name === 'Events' && eventList.length === 0) return
         navItems.push(
           <li key={name}>
             <Link
@@ -76,15 +70,13 @@ export default class NavBar extends PureComponent {
       }
     })
 
-    const collapse = this.state.showNavBar ? "" : "collapse"
+    const collapse = this.state.showNavBar ? '' : 'collapse'
 
     return (
       <>
         <nav
           id="mainNav"
-          className={`${
-            this.state.affix ? "affix" : ""
-          } navbar navbar-expand-lg navbar-toggler navbar-default`}
+          className={`${this.state.affix ? 'affix' : ''} navbar navbar-expand-lg navbar-toggler navbar-default`}
         >
           <div className="container-fluid">
             <div className="navbar-header">
@@ -93,7 +85,7 @@ export default class NavBar extends PureComponent {
               </a>
 
               <button
-                className={`navbar-toggler ${collapse ? "collapsed" : ""}`}
+                className={`navbar-toggler ${collapse ? 'collapsed' : ''}`}
                 type="button"
                 data-toggle="collapse"
                 aria-expanded={this.state.showNavBar}
@@ -105,10 +97,7 @@ export default class NavBar extends PureComponent {
               </button>
             </div>
           </div>
-          <div
-            className={`${collapse} navbar-collapse`}
-            id="bs-example-navbar-collapse-1"
-          >
+          <div className={`${collapse} navbar-collapse`} id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">{navItems}</ul>
           </div>
         </nav>

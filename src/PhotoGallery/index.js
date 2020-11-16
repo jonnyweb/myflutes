@@ -1,91 +1,105 @@
-import React from 'react';
-import Lightbox from 'react-image-lightbox';
+import React from 'react'
+import Lightbox from 'react-image-lightbox'
 
-import PhotoBox from './PhotoBox';
+import PhotoBox from './PhotoBox'
 
-import './style.scss';
+import kseym_1 from '../images/portfolio/fullsize/kseym_1.jpg'
+import kseym_2 from '../images/portfolio/fullsize/kseym_2.jpg'
+import purcell from '../images/portfolio/fullsize/purcell.jpg'
+import flutes_1 from '../images/portfolio/fullsize/flutes_1.jpg'
+import flutes_3 from '../images/portfolio/fullsize/flutes_3.jpg'
+import flutes_4 from '../images/portfolio/fullsize/flutes_4.jpg'
+
+import kseym_1_thumb from '../images/portfolio/thumbnails/kseym_1.jpg'
+import kseym_2_thumb from '../images/portfolio/thumbnails/kseym_2.jpg'
+import purcell_thumb from '../images/portfolio/thumbnails/purcell.jpg'
+import flutes_1_thumb from '../images/portfolio/thumbnails/flutes_1.jpg'
+import flutes_3_thumb from '../images/portfolio/thumbnails/flutes_3.jpg'
+import flutes_4_thumb from '../images/portfolio/thumbnails/flutes_4.jpg'
+
+import './style.scss'
 
 const photos = [
   {
     title: 'KSE Young Musician of the Year 2020',
     name: 'Victoria Receiving the Walser Trophy',
-    src: require('../images/portfolio/fullsize/kseym_1.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/kseym_1_thumb.jpg'),
+    src: kseym_1,
+    thumbnail: kseym_1_thumb,
   },
   {
     title: 'Purcell Room',
     name: "King's Ely Junior School Flute Choir",
-    src: require('../images/portfolio/fullsize/purcell.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/purcell.jpg'),
+    src: purcell,
+    thumbnail: purcell_thumb,
   },
   {
     title: 'KSE Young Musician of the Year 2020',
     name: 'Lauren Playing in the Final',
-    src: require('../images/portfolio/fullsize/kseym_2.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/kseym_2_thumb.jpg'),
+    src: kseym_2,
+    thumbnail: kseym_2_thumb,
   },
   {
     title: 'Suzuki Lessons',
     name: 'Marianne & Eleanor',
-    src: require('../images/portfolio/fullsize/flutes_1.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/flutes_1.jpg'),
+    src: flutes_1,
+    thumbnail: flutes_1_thumb,
   },
   {
     title: "Ciara's Book 1 Recital",
     name: 'Performers Photo',
-    src: require('../images/portfolio/fullsize/flutes_3.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/flutes_3.jpg'),
+    src: flutes_3,
+    thumbnail: flutes_3_thumb,
   },
   {
     title: 'Suzuki Summer School 2017',
     name: 'Liz & Her Pupils',
-    src: require('../images/portfolio/fullsize/flutes_4.jpg'),
-    thumbnail: require('../images/portfolio/thumbnails/flutes_4.jpg'),
+    src: flutes_4,
+    thumbnail: flutes_4_thumb,
   },
-];
+]
 
 export default class PhotoGallery extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
-    };
+    }
 
     this.lightBoxImages = photos.map((c, i) => {
-      c.caption = `${c.title} - ${c.caption || c.name}`;
-      return c;
-    });
+      c.caption = `${c.title} - ${c.caption || c.name}`
+      return c
+    })
   }
 
   openLightbox = (i, e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault()
+    e.stopPropagation()
 
     this.setState({
       currentImage: i,
       lightboxIsOpen: true,
-    });
-  };
+    })
+  }
 
   closeLightbox = () => {
     this.setState({
       lightboxIsOpen: false,
-    });
-  };
+    })
+  }
 
   gotoNextLightboxImage = () => {
     this.setState({
       currentImage: this.state.currentImage + 1,
-    });
-  };
+    })
+  }
 
   gotoPrevLightboxImage = () => {
     this.setState({
       currentImage: this.state.currentImage - 1,
-    });
-  };
+    })
+  }
 
   renderPhotoBoxes() {
     return photos.reduce((previous, current, index) => {
@@ -98,15 +112,15 @@ export default class PhotoGallery extends React.Component {
           thumbnail={current.thumbnail}
           openLightbox={this.openLightbox.bind(this, index)}
         />
-      );
+      )
 
-      return previous;
-    }, []);
+      return previous
+    }, [])
   }
 
   renderLightbox() {
-    const { lightboxIsOpen, currentImage } = this.state;
-    if (!lightboxIsOpen) return;
+    const { lightboxIsOpen, currentImage } = this.state
+    if (!lightboxIsOpen) return
 
     const props = {
       mainSrc: photos[currentImage].src,
@@ -118,18 +132,17 @@ export default class PhotoGallery extends React.Component {
       onMovePrevRequest: this.gotoPrevLightboxImage,
       onMoveNextRequest: this.gotoNextLightboxImage,
       onCloseRequest: this.closeLightbox,
-    };
+    }
 
     if (currentImage > 0) {
-      props.prevSrc = photos[currentImage - 1].src;
+      props.prevSrc = photos[currentImage - 1].src
     }
 
     if (currentImage < photos.length - 1) {
-      props.nextSrc = photos[currentImage + 1].src;
+      props.nextSrc = photos[currentImage + 1].src
     }
 
-    console.log(props);
-    return <Lightbox {...props} />;
+    return <Lightbox {...props} />
   }
 
   render() {
@@ -141,6 +154,6 @@ export default class PhotoGallery extends React.Component {
 
         {this.renderLightbox()}
       </section>
-    );
+    )
   }
 }

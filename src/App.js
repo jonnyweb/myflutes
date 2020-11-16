@@ -1,40 +1,39 @@
-import React, { Component } from 'react';
-import { animateScroll, scrollSpy } from 'react-scroll';
+import React, { Component } from 'react'
+import { animateScroll, scrollSpy } from 'react-scroll'
 
-import NavBar from './NavBar';
+import NavBar from './NavBar'
 
-import Header from './Header';
-import About from './About';
-import Quote from './Quote';
-import Lessons from './Lessons';
-import PhotoGallery from './PhotoGallery';
-import Videos from './Videos';
-import EventsList from './Events';
-import Contact from './Contact';
-import News from './News';
+import Header from './Header'
+import About from './About'
+import Quote from './Quote'
+import Lessons from './Lessons'
+import PhotoGallery from './PhotoGallery'
+import Videos from './Videos'
+import Contact from './Contact'
+import News from './News'
 
-import './global.scss';
+import './global.scss'
 
 export default class App extends Component {
   componentDidMount() {
-    scrollSpy.update();
+    scrollSpy.update()
   }
 
   scrollToTop = () => {
-    animateScroll.scrollToTop();
-  };
+    animateScroll.scrollToTop()
+  }
 
   scrollToBottom = () => {
-    animateScroll.scrollToBottom();
-  };
+    animateScroll.scrollToBottom()
+  }
 
   scrollTo = () => {
-    animateScroll.scrollTo(100);
-  };
+    animateScroll.scrollTo(100)
+  }
 
   scrollMore = () => {
-    animateScroll.scrollMore(100);
-  };
+    animateScroll.scrollMore(100)
+  }
 
   render() {
     return (
@@ -57,9 +56,8 @@ export default class App extends Component {
           author="Richard - accompanist"
         />
         <Videos name="Videos" href="videos" />
-        <EventsList name="Events" href="events" />
         <Contact name="Contact" href="contact" />
       </NavBar>
-    );
+    )
   }
 }
