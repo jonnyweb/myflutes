@@ -3,6 +3,8 @@ import { Row, FormLabel, FormGroup, FormControl } from 'react-bootstrap'
 
 import './style.scss'
 
+const SITE_KEY = '6LcvaOMZAAAAAMqqaUwe9PN06bhqvTpzqQJcOPvG'
+
 export default class ContactUs extends Component {
   constructor() {
     super()
@@ -27,7 +29,12 @@ export default class ContactUs extends Component {
       .join('&')
   }
 
-  sendMessage = () => {
+  sendMessage = (e) => {
+    e.preventDefault()
+    const token = grecaptcha.getResponse()
+
+    if (!this.state.formValidated || !token) return
+
     const formData = new FormData(this.formRef.current)
 
     fetch('/', {
@@ -115,15 +122,13 @@ export default class ContactUs extends Component {
               onChange={this.handleChange}
             />
           </FormGroup>
-          <div data-netlify-recaptcha="true"></div>
+          <div className="g-recaptcha" data-sitekey={SITE_KEY}></div>
         </div>
       </Row>
     )
   }
 
   render() {
-    // if (!this.state.publicKey) return null
-
     let form = null
 
     if (!this.state.formSent) {
@@ -153,9 +158,9 @@ export default class ContactUs extends Component {
           <form
             method="POST"
             data-netlify="true"
-            data-netlify-recaptcha="true"
             ref={this.formRef}
             name="myflutes-contact"
+            onSubmit={this.sendMessage}
           >
             <input type="hidden" name="form-name" value="myflutes-contact" />
             <Row>
