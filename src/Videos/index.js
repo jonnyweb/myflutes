@@ -1,11 +1,13 @@
-import React from "react"
-import { Row, Col } from "react-bootstrap"
+import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-import "./style.scss"
+import LazyLoad from 'react-lazyload'
+
+import './style.scss'
 
 const videos = [
-  "https://www.youtube.com/embed/_9exikmOe_o",
-  "https://www.youtube.com/embed/Gt_c1eeyyX4",
+  'https://www.youtube.com/embed/_9exikmOe_o',
+  'https://www.youtube.com/embed/Gt_c1eeyyX4',
   // 'https://www.youtube.com/embed/EyWza7LDjck',
   // 'https://www.youtube.com/embed/97rnW6VdOUY',
   // 'https://www.youtube.com/embed/videoseries?list=PL4QFol8n_H4htqv36WEgqz4mmrS9vbkuq',
@@ -22,26 +24,21 @@ export default function Videos() {
     videoComponents.push(
       <Col lg={6} sm={6} xs={12} key={`v${i}`}>
         <div className="video">
-          <iframe
-            title={`video${i}`}
-            src={videos[i]}
-            frameBorder="0"
-            allowFullScreen
-          />
+          <iframe title={`video${i}`} src={videos[i]} frameBorder="0" allowFullScreen />
         </div>
       </Col>
     )
   }
 
   return (
-    <section className={"no-padding"} id="videos">
+    <section className={'no-padding'} id="videos">
       <div className="container">
         <Row>
           <Col lg={12} className="text-center">
             <h2 className="section-heading">Videos</h2>
             <hr className="primary" />
           </Col>
-          {videoComponents}
+          <LazyLoad once>{videoComponents}</LazyLoad>
         </Row>
       </div>
     </section>
