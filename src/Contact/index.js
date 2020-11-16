@@ -30,15 +30,13 @@ export default class ContactUs extends Component {
   sendMessage = () => {
     const formData = new FormData(this.formRef.current)
 
-    fetch
-      .open('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      })
-      .then(() => {
-        this.setState({ formSent: true })
-      })
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    }).then(() => {
+      this.setState({ formSent: true })
+    })
   }
 
   handleChange = (e) => {
@@ -152,7 +150,8 @@ export default class ContactUs extends Component {
     return (
       <section id="contact">
         <div className="container">
-          <form data-netlify="true" data-netlify-recaptcha="true" ref={this.formRef}>
+          <form data-netlify="true" data-netlify-recaptcha="true" ref={this.formRef} name="myflutes-contact">
+            <input type="hidden" name="form-name" value="myflutes-contact" />
             <Row>
               <div className="col-lg-8 col-lg-offset-2 text-center">
                 <h2 className="section-heading">Get In Touch!</h2>
