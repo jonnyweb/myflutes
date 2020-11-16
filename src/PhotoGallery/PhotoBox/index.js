@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import LazyLoad from 'react-lazyload'
 
 export default function PhotoBox(props) {
   return (
     <div className={'col-lg-4 col-sm-6'}>
       <a href={props.src} className={'photo-box'} onClick={props.openLightbox}>
-        <img src={props.thumbnail} className={'img-responsive'} alt={props.title + ' ' + props.name} />
+        <LazyLoad height={'100%'} offset={100}>
+          <img src={props.thumbnail} className={'img-responsive'} alt={props.title + ' ' + props.name} />
+        </LazyLoad>
         <div className={'photo-box-caption'}>
           <div className={'photo-box-caption-content'}>
             <div className={'photo-category text-faded'}>{props.title}</div>
