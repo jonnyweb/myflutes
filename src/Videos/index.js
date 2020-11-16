@@ -38,7 +38,7 @@ export default function Videos() {
             <h2 className="section-heading">Videos</h2>
             <hr className="primary" />
           </Col>
-          <LazyLoad once>{videoComponents}</LazyLoad>
+          <LazyLoad>{videoComponents}</LazyLoad>
         </Row>
       </div>
     </section>
