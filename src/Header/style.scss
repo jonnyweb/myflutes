@@ -11,13 +11,18 @@ header {
   @include background-cover;
 
   background-position: right;
-  background-image: url('../images/header.jpg');
-  text-align: center;
-  color: white;
+
+  @media (min-width: 480px) {
+    background-image: url('../images/header.jpg');
+  }
 
   @media (max-width: 480px) {
-    background-position: 35rem;
+    background-image: url('../images/mobile.header.jpg');
+    background-position: center;
   }
+
+  text-align: center;
+  color: white;
 
   .header-content {
     position: relative;
