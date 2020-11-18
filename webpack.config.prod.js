@@ -1,9 +1,11 @@
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlInlineCssWebpackPlugin = require('html-inline-css-webpack-plugin').default
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const rules = [
   {
@@ -107,5 +109,7 @@ module.exports = {
       inject: true,
       scriptLoading: 'defer',
     }),
+    new HtmlInlineCssWebpackPlugin(),
+    // new PreloadWebpackPlugin(),
   ],
 }

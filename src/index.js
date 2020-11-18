@@ -6,15 +6,15 @@ import once from 'lodash.once'
 
 const app = document.getElementById('app')
 
-const hydrateApp = once(() => {
-  if (app && app.hasChildNodes()) {
-    hydrate(<App />, app)
-  }
-})
-
-document.addEventListener('scroll', hydrateApp)
-document.addEventListener('mousemove', hydrateApp)
-document.addEventListener('click', hydrateApp)
+if (document && app) {
+  window.addEventListener(
+    'load',
+    () => {
+      hydrate(<App />, app)
+    },
+    false
+  )
+}
 
 export default () => {
   return `<div id="app">${renderToString(<App />)}</div>`
