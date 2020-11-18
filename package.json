@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --config webpack.config.js",
-    "build:prod": "yarn build --config webpack.config.prod.js"
+    "build:prod": "NODE_ENV=production yarn build --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { animateScroll, scrollSpy } from 'react-scroll'
 
+import LazyLoad from 'react-lazyload'
 import NavBar from './NavBar'
 
 import Header from './Header'
@@ -56,7 +57,9 @@ export default class App extends Component {
           author="Richard - accompanist"
         />
         <Videos name="Videos" href="videos" />
-        <Contact name="Contact" href="contact" />
+        <LazyLoad height={'100%'} offset={100}>
+          <Contact name="Contact" href="contact" />
+        </LazyLoad>
       </NavBar>
     )
   }
