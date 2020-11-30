@@ -1,11 +1,12 @@
 const path = require('path')
+const glob = require('glob')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlInlineCssWebpackPlugin = require('html-inline-css-webpack-plugin').default
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-// const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 
 const rules = [
   {
@@ -90,6 +91,12 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`src/**/*`, { nodir: true }),
+      safelist: {
+        standard: [/^col-/],
+      },
+    }),
     new MiniCssExtractPlugin({
       filename: 'myflutes.[contenthash:8].css',
       minimize: true,
