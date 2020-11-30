@@ -14,10 +14,23 @@ const rules = [
     loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
   },
   {
-    test: /\.(jpe?g|eot|svg|ttf|woff|woff2)$/,
+    test: /mobile.header.jpg/,
     loaders: [
       {
-        loader: 'file-loader',
+        loader: 'url-loader',
+        options: {
+          name: 'assets/[name].[contenthash:8].[ext]',
+          limit: 100000,
+        },
+      },
+    ],
+  },
+  {
+    test: /\.(jpe?g|eot|svg|ttf|woff|woff2)$/,
+    exclude: /mobile.header.jpg/,
+    loaders: [
+      {
+        loader: 'url-loader',
         options: {
           name: 'assets/[name].[contenthash:8].[ext]',
           limit: 10,
