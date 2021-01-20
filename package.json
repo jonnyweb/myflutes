@@ -51,7 +51,7 @@
     "eslint-plugin-react": "^7.21.5",
     "file-loader": "6.0.0",
     "font-awesome": "^4.7.0",
-    "gsap": "3.5.1",
+    "gsap": "3.6.0",
     "html-inline-css-webpack-plugin": "^1.9.1",
     "html-webpack-plugin": "^4.5.0",
     "jsx-to-string": "1.4.0",
