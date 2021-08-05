@@ -41,4 +41,8 @@
 .news-image {
   max-width: 600px;
   margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
 }
