@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import { Row, Col } from "react-bootstrap"
-import laurenAndSophie from "../images/lauren_and_sophie.jpg"
-import "./style.scss"
+import { Row, Col } from 'react-bootstrap'
+import laurenAndSophie from '../images/lauren_and_sophie.jpg'
+import './style.scss'
 // <h3>King's Junior School Music Competition</h3>
 // <p>Congratulation to all of my pupils for the following results!</p>
 // <div id="results">
@@ -106,18 +106,31 @@ const kseymoty = (
   <div className="container">
     <Row>
       <Col lg={12} className="text-center">
-        <h2 className="section-heading">
-          Congraulations to Lauren & Sophie
-        </h2>
+        <h2 className="section-heading">Congraulations to Lauren & Sophie</h2>
         <hr className="primary" />
 
-
-        <p>Lauren Booth, who will be going into Year 11 in September, has achieved a 49/50 Distinction in her ARSM Diploma exam on the flute. This is the highest mark ever achieved by a King&#39;s Ely student and according to Neil Porter-Thaw, the school’s Director of Music, it is a mark very rarely achieved.</p>
-        <p>Sophie Hillier, who is also going into Year 11 next academic year, achieved 47/50 Distinction in her ARSM Diploma exam on the flute – again, an exceptional mark. Both Lauren and Sophie have been playing the flute since taking advantage of taster sessions in Year 2 at King&#39;s Ely Acremont Pre-Prep and Year 3 at King&#39;s Ely Junior. Their flute teacher, Liz Hargest, pictured here with the girls, is understandably proud of their results.</p>
+        <p>
+          Lauren Booth, who will be going into Year 11 in September, has achieved a 49/50 Distinction in her ARSM
+          Diploma exam on the flute. This is the highest mark ever achieved by a King&#39;s Ely student and according to
+          Neil Porter-Thaw, the school’s Director of Music, it is a mark very rarely achieved.
+        </p>
+        <p>
+          Sophie Hillier, who is also going into Year 11 next academic year, achieved 47/50 Distinction in her ARSM
+          Diploma exam on the flute – again, an exceptional mark. Both Lauren and Sophie have been playing the flute
+          since taking advantage of taster sessions in Year 2 at King&#39;s Ely Acremont Pre-Prep and Year 3 at
+          King&#39;s Ely Junior. Their flute teacher, Liz Hargest, pictured here with the girls, is understandably proud
+          of their results.
+        </p>
         <img className="news-image" src={laurenAndSophie} alt="Lauren, Sophie and Liz Hargest" />
-        <p>Liz said: "I am passionate about the flute and love the beautiful, silvery sound it makes. I have taught Lauren and Sophie from the ages of 6 and 8, respectively, and have inspired them to acquire the same love and passion for flute performance. Together we have nurtured and developed all the musical and technical skills needed to reach this standard of excellence. At the age of 15 in their recent ARSM performance diploma exams these girls have achieved outstanding marks. The girls appreciated Melody Day’s fine accompanying skills. This is a true example of how music making has enriched their lives. I am extremely happy for them and proud of all they have achieved."</p>
-
-
+        <p>
+          Liz said: "I am passionate about the flute and love the beautiful, silvery sound it makes. I have taught
+          Lauren and Sophie from the ages of 6 and 8, respectively, and have inspired them to acquire the same love and
+          passion for flute performance. Together we have nurtured and developed all the musical and technical skills
+          needed to reach this standard of excellence. At the age of 15 in their recent ARSM performance diploma exams
+          these girls have achieved outstanding marks. The girls appreciated Melody Day’s fine accompanying skills. This
+          is a true example of how music making has enriched their lives. I am extremely happy for them and proud of all
+          they have achieved."
+        </p>
       </Col>
     </Row>
   </div>
