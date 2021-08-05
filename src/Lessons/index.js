@@ -130,11 +130,11 @@ export default function Lessons() {
           </Col>
         </Row>
         <Row>
-          <Col className="text-center">Info Coming Soon</Col>
+          <Col className="text-center" lg={12}>Info Coming Soon</Col>
         </Row>
 
         <Row id="lessons-button">
-          <Col className="text-center">
+          <Col className="text-center" lg={12}>
             <Link
               to="photos"
               className="btn btn-primary btn-xl page-scroll sr-button"
