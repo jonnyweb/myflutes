@@ -26,5 +26,13 @@
     <script src="https://www.google.com/recaptcha/api.js" defer async></script>
   </head>
 
-  <body id="page-top"></body>
+  <body id="page-top">
+    <form netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="email" />
+      <input type="text" name="number" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
 </html>
