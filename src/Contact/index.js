@@ -31,9 +31,9 @@ export default class ContactUs extends Component {
 
   sendMessage = (e) => {
     e.preventDefault()
-    const token = grecaptcha.getResponse()
+    // const token = grecaptcha.getResponse()
 
-    if (!this.state.formValidated || !token) return
+    if (!this.state.formValidated) return
 
     const formData = new FormData(this.formRef.current)
 
