@@ -5,6 +5,7 @@ $fa-font-path: '~font-awesome/fonts/';
 @import '~react-image-lightbox/style.css';
 
 @import '~font-awesome/scss/font-awesome.scss';
+@import '~bootstrap/scss/bootstrap';
 
 body {
   @include serif-font;

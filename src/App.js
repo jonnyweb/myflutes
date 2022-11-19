@@ -14,7 +14,6 @@ import Contact from './Contact'
 import News from './News'
 
 import './global.scss'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default class App extends Component {
   componentDidMount() {
