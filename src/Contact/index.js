@@ -153,7 +153,7 @@ export default class ContactUs extends Component {
     )
 
     return (
-      <section id="contact-us">
+      <section id="contactus">
         <div className="container">
           <form
             method="POST"
