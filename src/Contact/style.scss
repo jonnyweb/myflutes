@@ -1,14 +1,10 @@
-#contactus {
+#contact-us {
   .row > div {
     margin: 0 auto;
   }
 
   textarea {
     height: 12rem;
-  }
-
-  #submit-button > div {
-    transition: all 2s ease;
   }
 
   .form-label {
@@ -19,5 +15,9 @@
   .form-control {
     display: block;
     width: 100%;
+  }
+
+  #submit-button > div {
+    transition: all 2s ease;
   }
 }
