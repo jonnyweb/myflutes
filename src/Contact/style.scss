@@ -11,7 +11,12 @@
     transition: all 2s ease;
   }
 
-  label {
+  .form-label {
     display: block;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
   }
 }
