@@ -6,10 +6,16 @@ import LazyLoad from 'react-lazyload'
 import './style.scss'
 
 const videos = [
-  'https://www.youtube.com/embed/PHDBIUmMNzY',
-  'https://www.youtube.com/embed/6AJqgpfKJzA',
-  'https://www.youtube.com/embed/WDZsX-3FPjM',
-  'https://www.youtube.com/embed/_9exikmOe_o',
+  'https://www.youtube.com/embed/rZ5rCwbBTvg', // Aurelie W
+  'https://www.youtube.com/embed/6zqO0m0ymnA', // Emily G
+  'https://www.youtube.com/embed/ut2V2iXW3ng', // Elsie May
+  'https://www.youtube.com/embed/lsjw7ng_tNw', // Isobel S
+  'https://www.youtube.com/embed/CsYzG_3a_O8', // Group
+
+  // 'https://www.youtube.com/embed/PHDBIUmMNzY', // Rosie's Twinkle
+  // 'https://www.youtube.com/embed/6AJqgpfKJzA', // Rosalind's Twinkle
+  // 'https://www.youtube.com/embed/WDZsX-3FPjM', // Peony's Twinkle
+  'https://www.youtube.com/embed/_9exikmOe_o', // Lauren - Hypnosis
   // 'https://www.youtube.com/embed/Gt_c1eeyyX4',
   // 'https://www.youtube.com/embed/EyWza7LDjck',
   // 'https://www.youtube.com/embed/97rnW6VdOUY',
