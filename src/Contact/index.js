@@ -121,7 +121,7 @@ export default class ContactUs extends Component {
             <FormControl
               name="message"
               as="textarea"
-              className="ta-message"
+              className="fm-textarea"
               value={this.state.form.message}
               placeholder="Message"
               onChange={this.handleChange}
