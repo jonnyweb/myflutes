@@ -73,47 +73,51 @@ export default class ContactUs extends Component {
       <Row>
         <div className="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3">
           <FormGroup controlId="Name">
-            <FormLabel>Name</FormLabel>
+            <FormLabel className="fm-label">Name</FormLabel>
             <FormControl
               name="name"
               type="text"
+              className="fm-input"
               value={this.state.form.name}
               placeholder="Name"
               onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="Number">
-            <FormLabel>Mobile/Home Number</FormLabel>
+            <FormLabel className="fm-label">Mobile/Home Number</FormLabel>
             <FormControl
               name="number"
               type="text"
+              className="fm-input"
               value={this.state.form.number}
               placeholder="07795..."
               onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="Email">
-            <FormLabel>Email</FormLabel>
+            <FormLabel className="fm-label">Email</FormLabel>
             <FormControl
               name="email"
               type="text"
+              className="fm-input"
               value={this.state.form.email}
               placeholder="Email"
               onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="Subject">
-            <FormLabel>Subject</FormLabel>
+            <FormLabel className="fm-label">Subject</FormLabel>
             <FormControl
               name="subject"
               type="text"
+              className="fm-input"
               value={this.state.form.subject}
               placeholder="Subject"
               onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup controlId="Message">
-            <FormLabel>Message</FormLabel>
+            <FormLabel className="fm-label">Message</FormLabel>
             <FormControl
               name="message"
               as="textarea"
