@@ -130,7 +130,11 @@ export default function Lessons() {
           </Col>
         </Row>
         <Row>
-          <Col className="text-center" lg={12}>Info Coming Soon</Col>
+          <Col className="text-center" lg={12}>
+            <p>30 minute lesson - £24.00</p>
+            <p>45 minutes lesson - £36.00</p>
+            <p>60 minutes lesson - £48.00</p>
+          </Col>
         </Row>
 
         <Row id="lessons-button">

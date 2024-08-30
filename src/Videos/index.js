@@ -9,7 +9,8 @@ const videos = [
   'https://www.youtube.com/embed/rZ5rCwbBTvg', // Aurelie W
   'https://www.youtube.com/embed/6zqO0m0ymnA', // Emily G
   'https://www.youtube.com/embed/ut2V2iXW3ng', // Elsie May
-  'https://www.youtube.com/embed/lsjw7ng_tNw', // Isobel S
+  'https://www.youtube.com/embed/qakGLNrCeI0', // Mum Playing
+  // 'https://www.youtube.com/embed/lsjw7ng_tNw', // Isobel S
   'https://www.youtube.com/embed/CsYzG_3a_O8', // Group
 
   // 'https://www.youtube.com/embed/PHDBIUmMNzY', // Rosie's Twinkle
